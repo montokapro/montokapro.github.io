@@ -364,8 +364,8 @@ var algebra = {
     name: 'Wikipedia: F-algebra',
     link: 'https://en.wikipedia.org/wiki/F-algebra'
   }, {
-    name: 'Gabriel Gonzalez: Morte Tutorial',
-    link: 'https://hackage.haskell.org/package/morte-1.6.15/docs/Morte-Tutorial.html'
+    name: 'Gabriel Gonzalez: Morte Tutorial - Simple Types',
+    link: 'https://hackage.haskell.org/package/morte-1.6.15/docs/Morte-Tutorial.html#g:4'
   }],
   rows: [{
     comment: 'Our data structures will resemble the following forms. We will be substituting "F a" with a variety of terms.',
@@ -392,8 +392,8 @@ var natural = {
     name: 'Mike Gordon: Coinduction - Numbers and conumbers',
     link: 'http://www.cl.cam.ac.uk/archive/mjcg/plans/Coinduction.html#numbers-and-conumbers'
   }, {
-    name: 'Gabriel Gonzalez: Morte Tutorial',
-    link: 'https://hackage.haskell.org/package/morte-1.6.15/docs/Morte-Tutorial.html'
+    name: 'Gabriel Gonzalez: Morte Tutorial - Recursion',
+    link: 'https://hackage.haskell.org/package/morte-1.6.15/docs/Morte-Tutorial.html#g:6'
   }],
   todo: 'Should we rewrite descriptions to use one and \'co-one\' instead?',
   rows: [{
@@ -427,10 +427,10 @@ var natural = {
     comment: 'We can distribute implication to formulate another representation. Here, \'×\' represents \'and\' and the product type.',
     data: [{
       name: '(a → a) × (1 → a)',
-      comment: 'We can create the structure for a natural by suppling two functions: a function to create a number from a number, and a constructor that supplies zero'
+      comment: 'We can create the structure for a natural by suppling two functions: a function to create a number from a number, and a constructor that supplies zero.'
     }, {
-      name: '(a → 1) × (a → a)',
-      comment: 'We can create the structure for a conatural by suppling two functions: a function to create a number from a number, and a destructor that consumes infinity'
+      name: '(a → a) × (a → 1)',
+      comment: 'We can create the structure for a conatural by suppling two functions: a function to create a number from a number, and a destructor that consumes infinity.'
     }]
   }, {
     comment: 'We can use currying to transform products into implication. This is how dependency injection and higher order functions are used.',
@@ -438,16 +438,16 @@ var natural = {
       name: '(a → a) → (1 → a)',
       comment: 'Most languages will not define naturals in this form, but they may define other structures using similar techniques.'
     }, {
-      name: '(a → 1) → (a → a)',
+      name: '(a → a) → (a → 1)',
       comment: 'Most languages will not define conaturals in this form, but they may define other structures using similar techniques.'
     }]
   }, {
-    comment: 'Instead of passing a constructors or destructors, we can pass the zero number itself. Whether this is valid depends on the language itself.',
+    comment: 'Instead of passing a constructor or destructor, we can pass the zero number itself. This assumption must be baked into our interpreter. The same syntax can have two different meanings, depending on which interpreter is used.',
     data: [{
       name: '(a → a) → a',
       comment: 'This is how naturals are defined in the calculus of constructions. Here we assume that a supplier of a value is equivalent to the value itself.'
     }, {
-      name: 'a → (a → a)',
+      name: '(a → a) → a',
       comment: 'This is how conaturals are defined in the dual to calculus of constructions. Here we assume that a consumer of a covalue is equivalent to the covalue itself.'
     }]
     // {
@@ -470,8 +470,8 @@ var list = {
     comment: 'A stream can be thought of as cells indexed by conaturals, where each cell can hold a value. Streams can have elements removed until they are empty.'
   }],
   references: [{
-    name: 'Gabriel Gonzalez: Morte Tutorial',
-    link: 'https://hackage.haskell.org/package/morte-1.6.15/docs/Morte-Tutorial.html'
+    name: 'Gabriel Gonzalez: Morte Tutorial - Recursion',
+    link: 'https://hackage.haskell.org/package/morte-1.6.15/docs/Morte-Tutorial.html#g:6'
   }],
   rows: [{
     comment: 'We can define lists in the same manner as the lisp language. A list is either the empty list or a cons cell with a value and a pointer to another list. To distinguish betweens lists and streams, we will use the terms \'push\' and \'pop\' for lists and streams respectively',
@@ -501,22 +501,22 @@ var list = {
     data: [{
       name: '(a × b → b) × (1 → b)'
     }, {
-      name: '(b → 1) × (b → a × b)'
+      name: '(b → a × b) × (b → 1)'
     }]
   }, {
     comment: 'We can apply currying again.',
     data: [{
       name: '((a → b) → b) → (1 → b)'
     }, {
-      name: '(b → 1) → (b → (a → b))'
+      name: '(b → (a → b)) → (b → 1)'
     }]
   }, {
-    comment: 'Instead of passing a constructors or destructors, we can pass the zero number itself. Whether this is valid depends on the language itself.',
+    comment: 'Instead of passing a constructor or destructor, we can pass empty itself. This assumption must be baked into our interpreter. The same syntax can have two different meanings, depending on which interpreter is used.',
     data: [{
       name: '((a → b) → b) → b',
       comment: 'This is how lists are defined in the calculus of constructions.'
     }, {
-      name: 'b → ((a → b) → b)',
+      name: '(b → (a → b)) → b',
       comment: 'This is how streams are defined in the dual to calculus of constructions.'
     }]
     // {
@@ -531,14 +531,19 @@ var list = {
 };
 
 var tree = {
-  header: 'Trees',
-  comment: 'TODO: Several kinds of trees exist. This tree is specifically a binary tree, where only the leaves contain values. We can fold over a tree to reduce it to a value, or unfold from a seed value to create an infinite tree.',
+  header: [{
+    name: 'Tree (Binary)',
+    comment: 'A binary tree can be thought of as nodes with right and left children, where only the leaves hold values.'
+  }, {
+    name: 'Cotree (Binary)',
+    comment: 'TODO'
+  }],
   rows: [{
     comment: 'A binary tree is either a leaf with a value or a node that points to two trees. We will denote this by saying "data ListF a b = LeafF a | BranchF b b"',
     data: [{
       name: 'TreeF a b → b'
     }, {
-      name: 'TreeF a b → b'
+      name: 'b → CotreeF a b'
     }]
   }, {
     comment: 'We can use a product type to represent branches, and use the Either monad.',
@@ -2227,15 +2232,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Div = _styledComponents2.default.div.withConfig({
   displayName: 'Body__Div'
-})(['border:4px solid #4CAF50;']);
+})(['border:0.25em solid #4CAF50;']);
 
 var Less = _styledComponents2.default.h3.withConfig({
   displayName: 'Body__Less'
-})(['margin:0;padding:4px;']);
+})(['margin:0;padding:0.25em;']);
 
 var More = _styledComponents2.default.div.withConfig({
   displayName: 'Body__More'
-})(['background-color:#f2f2f2;margin:0;padding:4px;']);
+})(['background-color:#f2f2f2;margin:0;padding:0.25em;']);
 
 exports.default = function (_ref) {
   var body = _ref.body;
@@ -2348,11 +2353,11 @@ var Div = _styledComponents2.default.div.withConfig({
 
 var Less = _styledComponents2.default.h2.withConfig({
   displayName: 'HeaderCell__Less'
-})(['text-align:center;margin:0;padding:4px;']);
+})(['text-align:center;margin:0;padding:0.25em;']);
 
 var More = _styledComponents2.default.p.withConfig({
   displayName: 'HeaderCell__More'
-})(['background-color:#f2f2f2;margin:0;padding:4px;']);
+})(['background-color:#f2f2f2;margin:0;padding:0.25em;']);
 
 var _class = function (_React$Component) {
   _inherits(_class, _React$Component);
@@ -2443,11 +2448,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var Div = _styledComponents2.default.div.withConfig({
   displayName: 'Row__Div'
-})(['background-color:#f2f2f2;cursor:pointer;']);
+})(['cursor:pointer;:hover{background-color:#f2f2f2;}']);
+
+var Padding = _styledComponents2.default.div.withConfig({
+  displayName: 'Row__Padding'
+})(['padding:0.25em;']);
 
 var More = _styledComponents2.default.p.withConfig({
   displayName: 'Row__More'
-})(['margin:0;padding:4px;']);
+})(['margin:0;background-color:#f2f2f2;padding:0.25em;']);
 
 var Less = _styledComponents2.default.div.withConfig({
   displayName: 'Row__Less'
@@ -2484,9 +2493,13 @@ var _class = function (_React$Component) {
           _reactCollapse2.default,
           { isOpened: this.state.expanded },
           _react2.default.createElement(
-            More,
+            Padding,
             null,
-            this.props.comment
+            _react2.default.createElement(
+              More,
+              null,
+              this.props.comment
+            )
           )
         ),
         _react2.default.createElement(
@@ -2543,13 +2556,17 @@ var Div = _styledComponents2.default.div.withConfig({
   displayName: 'Cell__Div'
 })(['width:50%;']);
 
+var Padding = _styledComponents2.default.div.withConfig({
+  displayName: 'Cell__Padding'
+})(['padding:0.25em;']);
+
 var Less = _styledComponents2.default.pre.withConfig({
   displayName: 'Cell__Less'
-})(['background-color:#ffffff;margin:0;padding:4px;']);
+})(['margin-left:0.25em;margin-right:0.25em;margin-top:0em;margin-bottom:0em;padding:0.25em;']);
 
 var More = _styledComponents2.default.p.withConfig({
   displayName: 'Cell__More'
-})(['background-color:#f2f2f2;margin:0;padding:4px;']);
+})(['margin:0em;background-color:#f2f2f2;padding:0.25em;']);
 
 var _class = function (_React$Component) {
   _inherits(_class, _React$Component);
@@ -2579,13 +2596,17 @@ var _class = function (_React$Component) {
           null,
           this.props.less
         ),
-        _react2.default.createElement(
+        this.props.more && _react2.default.createElement(
           _reactCollapse2.default,
           { isOpened: this.props.expanded },
           _react2.default.createElement(
-            More,
+            Padding,
             null,
-            this.props.more
+            _react2.default.createElement(
+              More,
+              null,
+              this.props.more
+            )
           )
         )
       );
@@ -2802,4 +2823,4 @@ exports.default = function (_ref) {
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.d99bea2e.js.map
+//# sourceMappingURL=static.8106ba05.js.map
