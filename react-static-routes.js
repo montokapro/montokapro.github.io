@@ -3,24 +3,18 @@
     import { Route } from 'react-router-dom'
     import universal, { setHasBabelPlugin } from 'react-universal-component'
 
-    
-
     setHasBabelPlugin()
 
     const universalOptions = {
       loading: () => null,
-      error: () => {
-        console.error(props.error);
-        return <div>An unknown error has occured loading this page. Please reload your browser and try again.</div>;
-      },
+      error: () => null,
     }
 
-      const t_0 = universal(import('../src/containers/Home'), universalOptions)
+    const t_0 = universal(import('../src/containers/Home'), universalOptions)
 const t_1 = universal(import('../src/containers/About'), universalOptions)
 const t_2 = universal(import('../src/containers/Algebra'), universalOptions)
 const t_3 = universal(import('../src/containers/Fold'), universalOptions)
 const t_4 = universal(import('../src/containers/404'), universalOptions)
-    
 
     // Template Map
     const templateMap = {
