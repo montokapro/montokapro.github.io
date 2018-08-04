@@ -11,9 +11,9 @@
     }
 
     const t_0 = universal(import('../src/containers/Home'), universalOptions)
-const t_1 = universal(import('../src/containers/About'), universalOptions)
-const t_2 = universal(import('../src/containers/Algebra'), universalOptions)
-const t_3 = universal(import('../src/containers/Fold'), universalOptions)
+const t_1 = universal(import('../src/containers/Algebra'), universalOptions)
+const t_2 = universal(import('../src/containers/Fold'), universalOptions)
+const t_3 = universal(import('../src/containers/Links'), universalOptions)
 const t_4 = universal(import('../src/containers/404'), universalOptions)
 
     // Template Map
@@ -26,7 +26,7 @@ t_4
     }
 
     // Template Tree
-    const templateTree = {c:{"404":{t:"t_4"},"/":{t:"t_0"},"about":{t:"t_1"},"algebra":{t:"t_2"},"fold":{t:"t_3"}}}
+    const templateTree = {c:{"404":{t:"t_4"},"/":{t:"t_0"},"algebra":{t:"t_1"},"fold":{t:"t_2"},"links":{t:"t_3"}}}
 
     // Get template for given path
     const getComponentForPath = path => {

@@ -267,11 +267,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactStatic = __webpack_require__(4);
 
-var _logo = __webpack_require__(26);
-
-var _logo2 = _interopRequireDefault(_logo);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
 
 exports.default = (0, _reactStatic.withSiteData)(function () {
   return _react2.default.createElement(
@@ -279,52 +277,39 @@ exports.default = (0, _reactStatic.withSiteData)(function () {
     null,
     _react2.default.createElement(
       'h1',
-      { style: { textAlign: 'center' } },
-      'Welcome to'
-    ),
-    _react2.default.createElement('img', { src: _logo2.default, alt: '' })
-  );
-});
-//
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-
-exports.default = function () {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      'h1',
       null,
-      'What are duals and why should we care?'
+      'What is this website?'
     ),
     _react2.default.createElement(
       'p',
       null,
-      '\'Dual\' is a mathematical term that expresses opposite-ness. Together, we will break down concepts like numbers, lists, and MapReduce. We will explore what the \'opposite\' of these well known concepts are, and open up entire new avenues of thinking and programming. In effect, we hope to double the number of tools in every programmer\'s toolkit!'
+      'This website is a dumping ground for some of my ideas. Mostly, I am interested in the connection between computer science and discrete math. I\'m especially interested in \'duals\'.'
+    ),
+    _react2.default.createElement(
+      'h1',
+      null,
+      'What are duals and why should I care?'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      '\'Dual\' is a mathematical term that expresses opposite-ness. Together, we will break down concepts like numbers, lists, and MapReduce. We will explore what the \'opposite\' of these well known concepts are, and open up entire new avenues of thinking and programming. By learning how to find the dual, we can take existing concepts and discover seemingly unrelated concepts. In effect, we hope to double the number of tools in every programmer\'s toolkit!'
+    ),
+    _react2.default.createElement(
+      'h1',
+      null,
+      'Ummm, I don\'t understand any of this...'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      'That\'s okay! My primary audience is myself. While useful as a way to organize my thoughts, there may be errors and obtuse explanations. To learn from people much more articulate than myself, see my Links section.'
     )
   );
-};
+});
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -342,13 +327,15 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Body = __webpack_require__(27);
+var _Body = __webpack_require__(26);
 
 var _Body2 = _interopRequireDefault(_Body);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var comment = 'Algebras are recognizable to most programmers only as what they were taught in grade school. By using the very same properties, we can create structures we know and love, as well as discover a few more. Each of these charts defines a concept, and then iterates on that concept starting with Haskell and ending with algebraic encodings.';
+
+var instructions = 'To use this chart, try clicking a header or row.';
 
 var algebra = {
   header: [{
@@ -465,7 +452,7 @@ var natural = {
   }],
   todo: 'Should we rewrite descriptions to use one and \'co-one\' instead?',
   rows: [{
-    comment: 'We can declare a functor that represents our structure. The difference between NatF and ConatF is purely nominal.',
+    comment: 'We can declare a functor that represents our structure. The difference between NatF and ConatF is purely nominal. The only difference is whether we take the least fixed point (natural) or greatest fixed point (conatural) of our functor.',
     data: [{
       name: 'NatF a → a',
       comment: 'We can define naturals in Haskell by declaring "data NatF a = ZeroF | SuccF a".'
@@ -510,13 +497,13 @@ var natural = {
       comment: 'Most languages will not define conaturals in this form, but they may define other structures using similar techniques.'
     }]
   }, {
-    comment: 'Instead of passing a constructor or destructor, we can pass the zero number itself. This assumption must be baked into our interpreter. The same syntax can have two different meanings, depending on which interpreter is used.',
+    comment: 'Instead of passing a constructor or destructor, we can pass the zero number itself. This assumption must be baked into our interpreter. The same syntax can have two different meanings, depending on what interpreter is used to read the statement.',
     data: [{
       name: '(a → a) → a',
-      comment: 'This is how naturals are defined in the calculus of constructions. We arrive here by assuming that a supplier of a value is equivalent to the value itself.'
+      comment: 'This is how naturals are defined in the calculus of constructions. We arrive here by assuming that a supplier of a value is equivalent to the value itself. The statement shows that the natural type takes a successor function \'a → a\' and a zero value \'a\''
     }, {
       name: '(a → a) → a',
-      comment: 'This is how conaturals are defined in the dual to calculus of constructions. We arrive here by assuming that a consumer of a covalue is equivalent to the covalue itself.'
+      comment: 'This is how conaturals are defined in the dual to calculus of constructions. We arrive here by assuming that a consumer of a covalue is equivalent to the covalue itself. The statement shows that the conatural type takes a predecessor function \'a → a\' and an infinity value \'a\''
     }]
     // {
     //   data: [
@@ -542,7 +529,7 @@ var list = {
     link: 'https://hackage.haskell.org/package/morte-1.6.15/docs/Morte-Tutorial.html#g:6'
   }],
   rows: [{
-    comment: 'We can define lists in the same manner as the lisp language. A list is either the empty list or a cons cell with a value and a pointer to another list. To distinguish betweens lists and streams, we will use the terms \'push\' and \'pop\' for lists and streams respectively',
+    comment: 'We can define lists in the same manner as the lisp language. A list is either the empty list or a cons cell with a value and a pointer to another list. To distinguish betweens lists and streams, we will use the terms \'push\' and \'pop\' for lists and streams respectively.',
     data: [{
       name: 'ListF a b → b',
       comment: 'We can define lists in Haskell by declaring "data ListF a b = NilF | PushF a b".'
@@ -679,6 +666,10 @@ var H3 = _styledComponents2.default.h3.withConfig({
   displayName: 'Algebra__H3'
 })(['float:center;text-align:center;margin:0;background-color:#4CAF50;color:white;']);
 
+var Instructions = _styledComponents2.default.span.withConfig({
+  displayName: 'Algebra__Instructions'
+})(['font-weight:bold;']);
+
 exports.default = function () {
   return _react2.default.createElement(
     Div,
@@ -686,7 +677,13 @@ exports.default = function () {
     _react2.default.createElement(
       'p',
       null,
-      comment
+      comment,
+      ' ',
+      _react2.default.createElement(
+        Instructions,
+        null,
+        instructions
+      )
     ),
     _react2.default.createElement(_Body2.default, { body: algebra }),
     _react2.default.createElement(_Body2.default, { body: natural }),
@@ -695,7 +692,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -713,17 +710,17 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Header = __webpack_require__(32);
+var _Header = __webpack_require__(31);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _Body = __webpack_require__(33);
+var _Body = __webpack_require__(32);
 
 var _Body2 = _interopRequireDefault(_Body);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var background = 'Folds are recognizable to most programmers as <a>MapReduce</a>. However, the full power of folds and their neglected sibling unfold is likely unharnessed by most programmers. This chart is meant to express dualities and correlations in a succinct manner, though you may drill down in any section by clicking for context.';
+var background = 'Folds are recognizable to most programmers as MapReduce. However, the full power of folds and their neglected sibling unfold is likely unharnessed by most programmers. This chart is meant to express dualities and correlations in a succinct manner, though you may drill down in any section by clicking for context.';
 
 var natBody = {
   name: 'Naturals',
@@ -1105,7 +1102,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1227,6 +1224,106 @@ var _class = function (_React$Component) {
 
 exports.default = _class;
 ;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+
+exports.default = function () {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Videos"
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      "Philip Wadler's ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://www.youtube.com/watch?v=V10hzjgoklA" },
+        "Category Theory for the Working Hacker"
+      ),
+      " is a succinct introduction to category theory."
+    ),
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Papers"
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      "Not content to be a fine speaker, Philip Wadler wrote ",
+      _react2.default.createElement(
+        "a",
+        { href: "http://homepages.inf.ed.ac.uk/wadler/papers/dual/dual.pdf" },
+        "The Dual Calculus"
+      ),
+      ", a paper explaining the duality between call by name and call by value. The paper is expanded upon by both himself and others in future papers which expand the power and usefulness of the calculus."
+    ),
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Books"
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      _react2.default.createElement(
+        "a",
+        { href: "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html" },
+        "SICP"
+      ),
+      " (also available in lecture form) is a fantastic way to expose yourself to new ways of thinking. However, I think ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://mitpress.mit.edu/books/little-schemer-fourth-edition" },
+        "The Little Schemer"
+      ),
+      " is a better way to learn how to apply these concepts. Further titles go beyond the basics, introducing readers to dependent types! ",
+      _react2.default.createElement(
+        "a",
+        { href: "https://beautifulracket.com/" },
+        "Beautiful Racket"
+      ),
+      " teaches how to write your own DSLs to solve problems."
+    ),
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Other"
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      _react2.default.createElement(
+        "a",
+        { href: "http://jwodder.freeshell.org/lambda.html" },
+        "Collected Lambda Functions"
+      ),
+      " is a useful resource for checking how concepts are encoded in pure lambda calculus. I often use this resource to convert concepts from lambda calculus to other languages."
+    )
+  );
+};
 
 /***/ }),
 /* 12 */
@@ -1371,11 +1468,6 @@ var App = function App() {
         ),
         _react2.default.createElement(
           _reactStatic.Link,
-          { to: '/about' },
-          'About'
-        ),
-        _react2.default.createElement(
-          _reactStatic.Link,
           { to: '/algebra' },
           'Algebra'
         ),
@@ -1383,6 +1475,11 @@ var App = function App() {
           _reactStatic.Link,
           { to: '/fold' },
           'Fold'
+        ),
+        _react2.default.createElement(
+          _reactStatic.Link,
+          { to: '/links' },
+          'Links'
         )
       ),
       _react2.default.createElement(
@@ -1478,30 +1575,10 @@ var t_0 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
   }
 }), universalOptions);
 var t_1 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
-  id: '../src/containers/About',
-  file: '/home/steve/code/js/react/dual/dist/react-static-routes.js',
-  load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 8)), (0, _importCss3.default)('src/containers/About', {
-      disableWarnings: true
-    })]).then(function (proms) {
-      return proms[0];
-    });
-  },
-  path: function path() {
-    return _path3.default.join(__dirname, '../src/containers/About');
-  },
-  resolve: function resolve() {
-    return /*require.resolve*/(8);
-  },
-  chunkName: function chunkName() {
-    return 'src/containers/About';
-  }
-}), universalOptions);
-var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/Algebra',
   file: '/home/steve/code/js/react/dual/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('src/containers/Algebra', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 8)), (0, _importCss3.default)('src/containers/Algebra', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -1511,17 +1588,17 @@ var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Algebra');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(9);
+    return /*require.resolve*/(8);
   },
   chunkName: function chunkName() {
     return 'src/containers/Algebra';
   }
 }), universalOptions);
-var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
+var t_2 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
   id: '../src/containers/Fold',
   file: '/home/steve/code/js/react/dual/dist/react-static-routes.js',
   load: function load() {
-    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 10)), (0, _importCss3.default)('src/containers/Fold', {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 9)), (0, _importCss3.default)('src/containers/Fold', {
       disableWarnings: true
     })]).then(function (proms) {
       return proms[0];
@@ -1531,10 +1608,30 @@ var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)(
     return _path3.default.join(__dirname, '../src/containers/Fold');
   },
   resolve: function resolve() {
-    return /*require.resolve*/(10);
+    return /*require.resolve*/(9);
   },
   chunkName: function chunkName() {
     return 'src/containers/Fold';
+  }
+}), universalOptions);
+var t_3 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
+  id: '../src/containers/Links',
+  file: '/home/steve/code/js/react/dual/dist/react-static-routes.js',
+  load: function load() {
+    return Promise.all([new Promise(function(resolve) { resolve(); }).then(__webpack_require__.bind(null, 11)), (0, _importCss3.default)('src/containers/Links', {
+      disableWarnings: true
+    })]).then(function (proms) {
+      return proms[0];
+    });
+  },
+  path: function path() {
+    return _path3.default.join(__dirname, '../src/containers/Links');
+  },
+  resolve: function resolve() {
+    return /*require.resolve*/(11);
+  },
+  chunkName: function chunkName() {
+    return 'src/containers/Links';
   }
 }), universalOptions);
 var t_4 = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)({
@@ -1567,7 +1664,7 @@ var templateMap = {
   t_4: t_4
 
   // Template Tree
-};var templateTree = { c: { "404": { t: "t_4" }, "/": { t: "t_0" }, "about": { t: "t_1" }, "algebra": { t: "t_2" }, "fold": { t: "t_3" } }
+};var templateTree = { c: { "404": { t: "t_4" }, "/": { t: "t_0" }, "algebra": { t: "t_1" }, "fold": { t: "t_2" }, "links": { t: "t_3" } }
 
   // Get template for given path
 };var getComponentForPath = function getComponentForPath(path) {
@@ -2257,12 +2354,6 @@ module.exports = require("hoist-non-react-statics");
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "static/logo.5b9a7a21.png";
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
@@ -2278,11 +2369,11 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _HeaderRow = __webpack_require__(28);
+var _HeaderRow = __webpack_require__(27);
 
 var _HeaderRow2 = _interopRequireDefault(_HeaderRow);
 
-var _Row = __webpack_require__(30);
+var _Row = __webpack_require__(29);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -2333,7 +2424,7 @@ exports.default = function (_ref) {
 };
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2351,7 +2442,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _HeaderCell = __webpack_require__(29);
+var _HeaderCell = __webpack_require__(28);
 
 var _HeaderCell2 = _interopRequireDefault(_HeaderCell);
 
@@ -2373,7 +2464,7 @@ exports.default = function (_ref) {
 };
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2468,7 +2559,7 @@ exports.default = _class;
 ;
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2492,7 +2583,7 @@ var _reactCollapse = __webpack_require__(2);
 
 var _reactCollapse2 = _interopRequireDefault(_reactCollapse);
 
-var _Cell = __webpack_require__(31);
+var _Cell = __webpack_require__(30);
 
 var _Cell2 = _interopRequireDefault(_Cell);
 
@@ -2578,7 +2669,7 @@ exports.default = _class;
 ;
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2678,7 +2769,7 @@ exports.default = _class;
 ;
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2702,7 +2793,7 @@ var _reactCollapse = __webpack_require__(2);
 
 var _reactCollapse2 = _interopRequireDefault(_reactCollapse);
 
-var _Row = __webpack_require__(11);
+var _Row = __webpack_require__(10);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -2813,7 +2904,7 @@ exports.default = _class;
 ;
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2831,7 +2922,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Row = __webpack_require__(11);
+var _Row = __webpack_require__(10);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -2881,4 +2972,4 @@ exports.default = function (_ref) {
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=static.9268a626.js.map
+//# sourceMappingURL=static.2ddf58ca.js.map
