@@ -30,6 +30,8 @@ Then he described a game such that we could deconstruct a word using this gramma
           {T: b}
 ```
 
+*Edit: Yusuke clarified that the depth of each leaf does not give a nimber. I made this flawed connection because there is a connection to Grundy values.*
+
 Yusuke acknowledged some restrictions, such as this method only working for impartial games. An impartial game is one where both players play by the same ruleset. More intuitively, those players may own pieces that only they can move. However, using a mutually recursive context-free grammar that swaps between two sets of rules, even this restriction seems unnecessary. I'm not sure this is a particularly interesting game, but an example might look like the following where $L$ and $R$ represent the rulesets relevant to the left and right player. 
 
 ```
@@ -37,6 +39,8 @@ S -> L
 L -> xR | yRy | x | y
 R -> xLx | Ly | x | y
 ```
+
+*Edit: Yusuke clarified that alternating turns like this only was valid for linear grammars.*
 
 One restriction that was harder to ignore was that a player had to evaluate a game to ensure it matched a context-free grammar, which felt very much like each player had to do most of the work necessary to solve the game for the winning moves. This really only seemed to be computationally elegant for linear regular grammars, which had a minimal lookahead.
 
