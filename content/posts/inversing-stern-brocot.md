@@ -63,12 +63,12 @@ What if we rotate these matrices? It turns out that applications of these matric
 
 $$
 \begin{pmatrix}
-1 && 1 \\
-1 && 0
+1 && 0 \\
+-1 && 1
 \end{pmatrix}, \quad
 \begin{pmatrix}
-0 && 1 \\
-1 && 1
+1 && -1 \\
+0 && 1
 \end{pmatrix}
 $$
 
