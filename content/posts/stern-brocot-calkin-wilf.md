@@ -53,11 +53,11 @@ $$
 Even the matrices we use to walk up the tree instead of down are the same.
 
 $$
-L' = \begin{pmatrix}
+L^{-1} = \begin{pmatrix}
 1 && 0 \\
 -1 && 1
 \end{pmatrix} \quad
-R' = \begin{pmatrix}
+R^{-1} = \begin{pmatrix}
 1 && -1 \\
 0 && 1
 \end{pmatrix}
@@ -100,7 +100,7 @@ c && c + d
 \end{pmatrix}
 $$
 $$
-M \times L' =
+M \times L^{-1} =
 \begin{pmatrix}
 a && b \\
 c && d
@@ -115,7 +115,7 @@ c - d && d
 \end{pmatrix}
 $$
 $$
-M \times R' =
+M \times R^{-1} =
 \begin{pmatrix}
 a && b \\
 c && d
@@ -165,7 +165,7 @@ c && d
 \end{pmatrix}
 $$
 $$
-L' \times M =
+L^{-1} \times M =
 \begin{pmatrix}
 1 && 0 \\
 -1 && 1
@@ -180,7 +180,7 @@ c - a && d - b
 \end{pmatrix}
 $$
 $$
-R' \times M =
+R^{-1} \times M =
 \begin{pmatrix}
 1 && -1 \\
 0 && 1
