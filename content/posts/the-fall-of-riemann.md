@@ -22,4 +22,3 @@ It is perhaps of no shock then that I've strived to follow directly in Conway's 
 Instead, the solve of the Riemann Hypothesis came with no radical new theory, no brilliant framing. Instead we have a *17 million* lines of Lean proof funded by a PR arm. For as big of an achievement this is for Alpöge, I cannot help but feel that the romantic era of brilliant framings is waning. No longer do we need to communicate across generations, and thus refine theory to be digestible. Instead mathematics is available to the highest bidder, disseminated at will to the masses, with the costs paid in carbon.
 
 I have no doubt that the brilliant framings will come in time. But I worry they will be greatly outpaced by the frontier.
-
